@@ -498,13 +498,14 @@
         
         .submit-btn:hover {
             background: #f0fdf4;
+            transform: translateY(-2px);
         }
         
         /* Footer */
         footer {
-            padding: 3rem 2rem 1.5rem;
             background: var(--text);
             color: var(--surface);
+            padding: 3rem 2rem 1.5rem;
         }
         
         .footer-content {
@@ -648,6 +649,10 @@
                 background: linear-gradient(135deg, #1e293b, #0f172a);
             }
             
+            .contact {
+                background: linear-gradient(135deg, #0f766e, #115e59);
+            }
+            
             .feature-card,
             .service-card,
             .stat-item {
@@ -712,6 +717,11 @@
                 <p>I eliminate repetitive tasks and human error through intelligent bots and automated workflows that operate 24/7.</p>
             </div>
             <div class="feature-card animate-on-scroll">
+                <div class="feature-icon">📊</div>
+                <h3>Predictive Analytics</h3>
+                <p>I develop machine learning models that turn data into actionable insights for strategic decision-making.</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
                 <div class="feature-icon">🔗</div>
                 <h3>System Integration</h3>
                 <p>I connect disparate applications through custom APIs, eliminating information silos and creating unified technological ecosystems.</p>
@@ -733,7 +743,7 @@
         <div class="services-grid">
             <div class="service-card animate-on-scroll">
                 <div class="service-image">
-                    <img src="images/img_f7793648bc49.jpg" alt="Business Process Automation" style="width:100%;height:100%;object-fit:cover;">
+                    <i class="fas fa-cogs"></i>
                 </div>
                 <div class="service-content">
                     <h3>Business Process Automation</h3>
@@ -747,7 +757,7 @@
             </div>
             <div class="service-card animate-on-scroll">
                 <div class="service-image">
-                    <img src="images/img_27e69aa417d2.jpg" alt="System Integration & Migration" style="width:100%;height:100%;object-fit:cover;">
+                    <i class="fas fa-network-wired"></i>
                 </div>
                 <div class="service-content">
                     <h3>System Integration & Migration</h3>
@@ -761,7 +771,7 @@
             </div>
             <div class="service-card animate-on-scroll">
                 <div class="service-image">
-                    <img src="images/img_6cbf0eeaeb4e.jpg" alt="Automated Dashboards & Reporting" style="width:100%;height:100%;object-fit:cover;">
+                    <i class="fas fa-chart-line"></i>
                 </div>
                 <div class="service-content">
                     <h3>Automated Dashboards & Reporting</h3>
@@ -790,7 +800,7 @@
                 <p>I work with open technologies and industry standards to ensure solutions are maintainable, secure, and easily integrable with your existing infrastructure.</p>
             </div>
             <div class="animate-on-scroll">
-                <img src="norovid-avatar.jpeg" alt="Norovid - Intelligent Automation Specialist" style="border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+                <img src="https://via.placeholder.com/400x500/0f766e/ffffff?text=Norovid" alt="Norovid - Intelligent Automation Specialist" style="border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
             </div>
         </div>
     </section>
@@ -861,14 +871,23 @@
                     <li><a href="#">Optimization & Support</a></li>
                 </ul>
             </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>📧 norovid@damupi.com</li>
+                    <li>📍 Malta (remote work available)</li>
+                    <li>🌐 Available for international projects</li>
+                </ul>
+            </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Norovid. All rights reserved.</p>
+            <p>Made with ❤️ in Malta for businesses worldwide.</p>
         </div>
     </footer>
 
     <!-- Font Awesome for icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
     
     <script>
         // Mobile menu toggle
