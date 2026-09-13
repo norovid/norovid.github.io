@@ -1,1 +1,1006 @@
-Hello World
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Norovid - Servicios de Automatización Inteligente</title>
+    <meta name="description" content="Especialista en automatización de procesos con IA y Python. Optimizo flujos de trabajo, integro sistemas y desarrollo soluciones personalizadas para empresas.">
+    <style>
+        :root {
+            --primary: #0f766e;
+            --primary-dark: #115e59;
+            --secondary: #10b981;
+            --accent: #3b82f6;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --muted: #64748b;
+            --border: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+        }
+        
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--text);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary);
+        }
+        
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--text);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(15, 118, 110, 0.3);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(15, 118, 110, 0.4);
+        }
+        
+        .cta-secondary:hover {
+            background: rgba(15, 118, 110, 0.05);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: var(--surface);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        
+        .section-title p {
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        
+        .feature-card p {
+            color: var(--muted);
+            line-height: 1.6;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+        }
+        
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .service-card {
+            background: var(--surface);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-image i {
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .service-content {
+            padding: 2rem;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        
+        .service-content p {
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        
+        .service-tag {
+            background: rgba(15, 118, 110, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: var(--surface);
+        }
+        
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+        
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+            display: block;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: var(--primary);
+            color: var(--surface);
+        }
+        
+        .contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact p {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1.25rem;
+            background: var(--surface);
+            color: var(--primary);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: #f0fdf4;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: var(--surface);
+            padding: 3rem 2rem 1.5rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--surface);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--surface);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .about-content,
+            .services-grid,
+            .features-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-stats,
+            .stat-item {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .about-stats,
+            .stat-item {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Dark mode preference */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background: #0f172a;
+                --surface: #1e293b;
+                --text: #f8fafc;
+                --muted: #94a3b8;
+                --border: #334155;
+            }
+            
+            header {
+                background: rgba(30, 41, 59, 0.95);
+            }
+            
+            .hero {
+                background: linear-gradient(135deg, #1e293b, #0f172a);
+            }
+            
+            .services {
+                background: linear-gradient(135deg, #1e293b, #0f172a);
+            }
+            
+            .contact {
+                background: linear-gradient(135deg, #0f766e, #115e59);
+            }
+            
+            .feature-card,
+            .service-card,
+            .stat-item {
+                background: var(--surface);
+                border-color: var(--border);
+            }
+            
+            .cta-secondary {
+                background: rgba(15, 118, 110, 0.2);
+            }
+            
+            footer {
+                background: #0f172a;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">⚡</div>
+                <span>Norovid</span>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu">
+                <a href="#hero" class="active">Inicio</a>
+                <a href="#features">Servicios</a>
+                <a href="#about">Sobre mí</a>
+                <a href="#contact">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Automatización Inteligente de Procesos</h1>
+            <p>Transformo operaciones empresariales complejas en flujos automatizados eficientes usando IA, Python y tecnologías de vanguardia. Desde pequeños scripts hasta sistemas completos de integración.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="cta-button cta-primary">Hablemos de Tu Proyecto</a>
+                <a href="#services" class="cta-button cta-secondary">Ver Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-title">
+            <h2>¿Por qué elegir mis servicios?</h2>
+            <p>Enfoque personalizado, resultados medibles y tecnología de punta para transformar tu negocio</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon">🤖</div>
+                <h3>Automatización de Flujos</h3>
+                <p>Elimino tareas repetitivas y errores humanos mediante bots inteligentes y flujos de trabajo automatizados que operan 24/7.</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon">📊</div>
+                <h3>Análisis Predictivo</h3>
+                <p>Desarrollo modelos de machine learning que convierten datos en insights accionables para decisiones estratégicas basadas en evidencia.</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon">🔗</div>
+                <h3>Integración de Sistemas</h3>
+                <p>Conecto aplicaciones dispares mediante APIs personalizadas, eliminando silos de información y creando ecosistemas tecnológicos unificados.</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon">⚡</div>
+                <h3>Optimización Continua</h3>
+                <p>Implemento monitoring y auto-ajuste continuo para asegurar que tus sistemas siempre operen al máximo rendimiento posible.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>Mis Servicios Especializados</h2>
+            <p>Soluciones completas diseñadas para abordar los desafíos específicos de automatización en tu industria</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll">
+                <div class="service-image">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Automatización de Procesos Empresariales</h3>
+                    <p>Diseño e implementación de flujos de trabajo automatizados para departamentos como finanzas, recursos humanos, ventas y operaciones. Desde facturación automática hasta onboarding de empleados.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">Python</span>
+                        <span class="service-tag">Automation</span>
+                        <span class="service-tag">Workflow</span>
+                    </div>
+                </div>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-image">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Inteligencia Artificial Aplicada</h3>
+                    <p>Desarrollo de modelos de machine learning para predicción de demanda, clasificación de documentos, detección de anomalías y recomendaciones personalizadas adaptadas a tu negocio.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">Machine Learning</span>
+                        <span class="service-tag">AI</span>
+                        <span class="service-tag">Predictive</span>
+                    </div>
+                </div>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-image">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Integración y Migración de Sistemas</h3>
+                    <p>Conecto sistemas heredados con aplicaciones modernas mediante APIs REST, webhooks y middleware personalizado. Migración segura de datos entre plataformas.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">API</span>
+                        <span class="service-tag">Integration</span>
+                        <span class="service-tag">Migration</span>
+                    </div>
+                </div>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-image">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Dashboards y Reportes Automatizados</h3>
+                    <p>Creación de paneles de control en tiempo real y reportes programados que se actualizan automáticamente, eliminando el trabajo manual de recopilación y formateo de datos.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">Dashboard</span>
+                        <span class="service-tag">Reporting</span>
+                        <span class="service-tag">BI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-title">
+            <h2>Sobre Mí</h2>
+            <p>Especialista en automatización de procesos con experiencia en desarrollo de soluciones IA para empresas de diversos sectores</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text animate-on-scroll">
+                <h3>Experiencia y Enfoque</h3>
+                <p>Soy un ingeniero especializado en automatización de procesos con sólida formación en Python, machine learning y arquitecturas de integración. He trabajado con empresas de diversos tamaños para transformar operaciones manuales en sistemas eficientes y escalables.</p>
+                <p>Mi enfoque se centra en entender primero tus necesidades específicas, luego diseñar soluciones que no solo automatizan tareas, sino que generan valor medible en términos de tiempo ahorrado, reducción de errores y mejora en la toma de decisiones.</p>
+                <p>Trabajo con tecnologías abiertas y estándares de la industria para asegurar que las soluciones sean mantenibles, seguras y fácilmente integrables con tu infraestructura existente.</p>
+            </div>
+            <div class="animate-on-scroll">
+                <img src="https://via.placeholder.com/400x500/0f766e/ffffff?text=Norovid" alt="Norovid - Especialista en Automatización IA" style="border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>Listo para Automatizar?</h2>
+            <p>Comencemos con una consulta gratuita para identificar oportunidades de automatización en tu negocio</p>
+        </div>
+        <div class="contact-form animate-on-scroll">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nombre completo</label>
+                    <input type="text" id="name" name="name" placeholder="Ingresa tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Empresa u organización</label>
+                    <input type="text" id="company" name="company" placeholder="Nombre de tu empresa" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Tipo de servicio interesado</label>
+                    <select id="service" name="service" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="automation">Automatización de procesos</option>
+                        <option value="ai">Soluciones de IA</option>
+                        <option value="integration">Integración de sistemas</option>
+                        <option value="optimization">Optimización de rendimiento</option>
+                        <option value="consulting">Consultoría y auditoría</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Detalles del proyecto</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Cuéntame sobre tus necesidades, desafíos y objetivos..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Solicitud</button>
+            </form>
+            <div id="formStatus" style="margin-top: 1.5rem; text-align: center; min-height: 2rem;"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Norovid</h3>
+                <p>Especialista en automatización de procesos con IA y Python. Ayudando a empresas a optimizar operaciones y reducir costos mediante soluciones tecnológicas inteligentes.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#features">Servicios</a></li>
+                    <li><a href="#about">Sobre mí</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Servicios</h3>
+                <ul>
+                    <li><a href="#">Automatización de Procesos</span></a></li>
+                    <li><a href="#">Soluciones de IA</span></a></li>
+                    <li><a href="#">Integración de Sistemas</span></a></li>
+                    <li><a href="#">Optimización y Soporte</span></a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>📧 norovid@damupi.com</li>
+                    <li>📍 Malta (trabajo remoto disponible)</li>
+                    <li>🌐 Disponible para proyectos internacionales</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Norovid. Todos los derechos reservados.</p>
+            <p>Hecho con ❤️ en Malta para empresas de todo el mundo.</p>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            // Animate hamburger to X
+            const spans = mobileMenuBtn.querySelectorAll('span');
+            spans.forEach(span => span.classList.toggle('active'));
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                document.querySelectorAll('.mobile-menu-btn span').forEach(span => {
+                    span.classList.remove('active');
+                });
+            });
+        });
+        
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Form handling (simulated)
+        const form = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simulate sending
+            formStatus.innerHTML = '<div style="padding: 1rem; background: #dcfce7; color: #166534; border-radius: 8px;">Mensaje enviado correctamente. ¡Gracias por tu interés!</div>';
+            form.reset();
+            
+            // Clear status after 5 seconds
+            setTimeout(() => {
+                formStatus.innerHTML = '';
+            }, 5000);
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
