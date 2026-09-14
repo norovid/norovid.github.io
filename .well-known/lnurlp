@@ -1,0 +1,18 @@
+# LNURLP configuration for norovid@damupi.com
+# This enables receiving zaps via NIP-57
+
+# The following fields are required:
+nostrRelayCount: 6
+nostrRelays:
+  - wss://norovid.ddns.net/outbox
+  - wss://nostr.oxtr.dev
+  - wss://relay.nostr.band
+  - wss://relay.noswhere.com
+  - wss://nostr.wine
+  - wss://relay.damus.io
+
+# Payment pointer configuration
+defaultDescription: "Zap a Norovid"
+minPayment: 1000
+maxPayment: 100000000
+currency: "sat"
